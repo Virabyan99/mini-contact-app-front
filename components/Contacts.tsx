@@ -2,14 +2,14 @@ import React from 'react'
 import { Button } from './ui/button'
 import { Card, CardContent, CardHeader } from './ui/card'
 import { Avatar, AvatarImage } from './ui/avatar'
-import CustomAvatar from '../public/customavatar.png'
+import Image from 'next/image'
 
 interface Contact {
   id: number
   name: string
   email: string
   phone: string
-  image?: any
+  image?: string
 }
 
 interface ContactsProps {
@@ -31,16 +31,17 @@ const Contacts: React.FC<ContactsProps> = ({
         contacts.map((contact) => (
           <Card key={contact.id} className="p-4 rounded-lg shadow-md">
             <CardHeader className="flex items-center space-x-4">
-              <Avatar className=" w-16 h-16 ">
-                {/* Ensure to use the URL from the backend */}
-                <AvatarImage
-                  src={
-                    contact.image === null ? CustomAvatar : contact.image
-                  } // Fallback if image is missing or empty
-                  alt={contact.name}
-                  className="w-16 h-16 rounded-full"
-                />
-              </Avatar>
+              <div className="bg-slate-200 rounded-full">
+                  <Avatar className="w-16 h-16">
+                    <AvatarImage
+                      src={contact.image} // Use the backend image URL
+                      alt={contact.name}
+                      className="w-16 h-16 rounded-full"
+                    />
+                  </Avatar>
+                
+              </div>
+
               <div>
                 <h3 className="text-xl font-semibold">{contact.name}</h3>
                 <p className="text-sm text-gray-500">{contact.email}</p>
