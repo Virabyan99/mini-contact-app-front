@@ -68,7 +68,7 @@ const NewContactPage = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-semibold mb-6 text-center">Create New Contact</h1>
+      <h1 className="text-3xl font-semibold mb-6 text-center">Create New Contact</h1>
       <Card className="max-w-lg mx-auto p-6 shadow-md rounded-lg">
         <CardHeader>
           <h2 className="text-xl font-semibold">Contact Information</h2>

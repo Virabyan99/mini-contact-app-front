@@ -22,8 +22,8 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center p-4 bg-gray-100 shadow-md">
-      <h1 className="text-3xl font-semibold">Contact Management App</h1>
+    <div className=" flex justify-between items-center p-4 bg-gray-100 shadow-md">
+      <h1 className="text-2xl font-semibold">Contact Management App</h1>
       
       {/* Conditionally render Try for Free or User info */}
       {status === "authenticated" ? (
