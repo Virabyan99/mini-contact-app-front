@@ -38,9 +38,9 @@ const EditContactPage = () => {
       try {
         const response = await fetch(`https://contact-app-newbac.gmparstone99.workers.dev/api/contacts/${id}`, {
           headers: {
-            Authorization: 'Bearer my-secret-token',
+            Authorization: 'Bearer my-secret-token', // Add Authorization header
           },
-        });
+        })
         if (!response.ok) {
           throw new Error('Failed to fetch contact');
         }

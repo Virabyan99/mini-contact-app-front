@@ -2,13 +2,14 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { Avatar, AvatarImage } from "./ui/avatar";
+import CustomAvatar from "../public/customavatar.png";
 
 interface Contact {
   id: number;
   name: string;
   email: string;
   phone: string;
-  image?: string;
+  image?: any;
 }
 
 interface ContactsProps {
@@ -29,7 +30,7 @@ const Contacts: React.FC<ContactsProps> = ({ contacts = [], onEdit, onDelete }) 
               <Avatar className=" w-16 h-16 ">
                 {/* Ensure to use the URL from the backend */}
                 <AvatarImage
-                  src={contact.image }  // Fallback to placeholder if no image
+                  src={contact.image || CustomAvatar }  // Fallback to placeholder if no image
                   alt={contact.name}
                   className="w-16 h-16 rounded-full"
                 />
