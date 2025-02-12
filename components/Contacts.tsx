@@ -1,24 +1,28 @@
-import React from "react";
-import { Button } from "./ui/button";
-import { Card, CardContent, CardHeader } from "./ui/card";
-import { Avatar, AvatarImage } from "./ui/avatar";
-import CustomAvatar from "../public/customavatar.png";
+import React from 'react'
+import { Button } from './ui/button'
+import { Card, CardContent, CardHeader } from './ui/card'
+import { Avatar, AvatarImage } from './ui/avatar'
+import CustomAvatar from '../public/customavatar.png'
 
 interface Contact {
-  id: number;
-  name: string;
-  email: string;
-  phone: string;
-  image?: any;
+  id: number
+  name: string
+  email: string
+  phone: string
+  image?: any
 }
 
 interface ContactsProps {
-  contacts: Contact[];  // contacts should always be an array
-  onEdit: (id: number) => void;
-  onDelete: (id: number) => void;
+  contacts: Contact[] // contacts should always be an array
+  onEdit: (id: number) => void
+  onDelete: (id: number) => void
 }
 
-const Contacts: React.FC<ContactsProps> = ({ contacts = [], onEdit, onDelete }) => {  
+const Contacts: React.FC<ContactsProps> = ({
+  contacts = [],
+  onEdit,
+  onDelete,
+}) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {contacts.length === 0 ? (
@@ -30,7 +34,11 @@ const Contacts: React.FC<ContactsProps> = ({ contacts = [], onEdit, onDelete }) 
               <Avatar className=" w-16 h-16 ">
                 {/* Ensure to use the URL from the backend */}
                 <AvatarImage
-                  src={contact.image || CustomAvatar }  // Fallback to placeholder if no image
+                  src={
+                    contact.image && contact.image.trim() !== ''
+                      ? contact.image
+                      : CustomAvatar
+                  } // Fallback if image is missing or empty
                   alt={contact.name}
                   className="w-16 h-16 rounded-full"
                 />
@@ -46,15 +54,13 @@ const Contacts: React.FC<ContactsProps> = ({ contacts = [], onEdit, onDelete }) 
                 <Button
                   variant="outline"
                   className="text-blue-500"
-                  onClick={() => onEdit(contact.id)}
-                >
+                  onClick={() => onEdit(contact.id)}>
                   Edit
                 </Button>
                 <Button
                   variant="destructive"
                   className="text-white"
-                  onClick={() => onDelete(contact.id)}
-                >
+                  onClick={() => onDelete(contact.id)}>
                   Delete
                 </Button>
               </div>
@@ -63,7 +69,7 @@ const Contacts: React.FC<ContactsProps> = ({ contacts = [], onEdit, onDelete }) 
         ))
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Contacts;
+export default Contacts

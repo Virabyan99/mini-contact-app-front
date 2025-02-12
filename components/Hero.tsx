@@ -19,7 +19,7 @@ const Hero = () => {
             <Button
               variant="default"
               className="px-8 py-3 text-lg font-semibold rounded-md bg-orange-500 hover:bg-orange-600 transition"
-              onClick={() => window.location.href = '/signup'}
+              onClick={() => window.location.href = '/contacts'}
             >
               Get Started
             </Button>
