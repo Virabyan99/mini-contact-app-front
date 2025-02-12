@@ -35,9 +35,7 @@ const Contacts: React.FC<ContactsProps> = ({
                 {/* Ensure to use the URL from the backend */}
                 <AvatarImage
                   src={
-                    contact.image && contact.image.trim() !== ''
-                      ? contact.image
-                      : CustomAvatar
+                    contact.image === null ? CustomAvatar : contact.image
                   } // Fallback if image is missing or empty
                   alt={contact.name}
                   className="w-16 h-16 rounded-full"
