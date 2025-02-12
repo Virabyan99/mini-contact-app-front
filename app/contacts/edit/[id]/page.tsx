@@ -9,6 +9,9 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useSession } from 'next-auth/react';
 
+export const runtime = 'edge';
+
+
 const EditContactPage = () => { 
    const { data: session, status } = useSession(); // Access session and its status
     const router = useRouter();
